@@ -8,6 +8,10 @@ function createPost() {
     id: counter
   };
 };
+function generateId(counter) {
+    Counter++;
+  };
+
 
 function storePost() {
   postArray.push(postObject);
@@ -18,21 +22,34 @@ function storePost() {
   $('.posts').append('<p class="post" data-id='+postArray[i].postObject.id+'>'+postArray[i].postObject.text+ '</br><button type="button" class="remove">REMOVE</button></p>');
 };*/
 function clearPage(){
-//  for (var i=0;i<postArray.length; i++){
+
   $('.posts').find('p').remove();
-//  }
+
 }
-function renderPage(){
+/*function renderPage(){
   clearPage();
   for (var i=0;i<postArray.length; i++){
     $('.posts').append('<p class="post" data-id='+postArray[i].id+'>'+postArray[i].text+ '</br><button type="button" class="remove">REMOVE</button></p>');
-  }
-}
+  }*/
+
 function onAddPostClick(){
   createPost();
   storePost();
   renderPage();
 };
-$('.add-post').on('click', onAddPostClick);
+var source = $('#spacebook-blastoff').html();
+var template = Handlebars.compile(source);
+var newHTML = template(postArray);
+
+function itirateArray(){
+  for (let i=0;i<postArray.length; i++){
+    var newHTML = template(postArray[i]);
+    $('.posts').append(newHTML);
+}
+};
+$('.add-post').on('click', createPost);
+$('.add-post').on('click', storePost);
+
+$('.add-post').on('click', itirateArray);
 
 //my new new branch

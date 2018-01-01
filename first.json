@@ -1,0 +1,18 @@
+  {
+    "name":"ant",
+    "weight":0.000001,
+    "habitat":"everywhere",
+    "endangered":false,
+    "diet":"anything",
+    "predators":["anteaters, spiders"],
+    "taste":1
+  },
+  {
+    "name":"grasshopper",
+    "weight":0.000001,
+    "habitat":"dry grain saturated areas",
+    "endangered":false,
+    "diet":"grains",
+    "predators": "spiders",
+    "taste":5
+  }
